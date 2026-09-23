@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  validate:
+    name: Validate static site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          test -f index.html
+          test -f Style.css
+          test -f README.md
+          test -f CONTRIBUTING.md
+          test -f CODE_OF_CONDUCT.md
+          test -f LICENSE
+
+      - name: Check HTML basics
+        run: |
+          grep -qi "<!DOCTYPE html>" index.html
+          grep -qi '<html lang="en">' index.html
+          grep -qi '<meta name="viewport"' index.html
+          grep -qi '<link rel="stylesheet" href="Style.css">' index.html
