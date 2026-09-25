@@ -1,4 +1,4 @@
-# Harshit Pandey Portfolio
+# Anand Mishra Portfolio
 
 A bare minimum portfolio for open-source contribution. It highlights projects,
 skills, contribution interests, and contact links.
